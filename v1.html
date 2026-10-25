@@ -1,0 +1,650 @@
+<!doctype html>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="web_standard" name="shell-type" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+        <style>
+            @layer base {
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    overscroll-behavior: none;
+                }
+                main > :first-child {
+                    margin-top: 0 !important;
+                }
+                main > :last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "secondary-container": "#e2dfde",
+                            "surface-variant": "#e2e2e2",
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1a1c1c",
+                            "on-tertiary-fixed": "#1b1c1c",
+                            tertiary: "#5e5e5e",
+                            outline: "#807569",
+                            "tertiary-container": "#a7a6a6",
+                            primary: "#77592f",
+                            "secondary-fixed": "#e5e2e1",
+                            "inverse-on-surface": "#f0f1f1",
+                            "on-background": "#1a1c1c",
+                            "surface-container-low": "#f3f3f4",
+                            "surface-bright": "#f9f9f9",
+                            "on-error": "#ffffff",
+                            "tertiary-fixed-dim": "#c7c6c6",
+                            "on-tertiary": "#ffffff",
+                            "surface-container-high": "#e8e8e8",
+                            "surface-dim": "#dadada",
+                            "outline-variant": "#d2c4b7",
+                            "on-secondary": "#ffffff",
+                            "primary-fixed": "#ffddb4",
+                            "on-primary-fixed-variant": "#5d421a",
+                            "accent-champagne-light": "#E8D8C3",
+                            "tertiary-fixed": "#e3e2e2",
+                            "accent-champagne-dark": "#8C6A3E",
+                            "surface-container-highest": "#e2e2e2",
+                            "on-secondary-fixed-variant": "#474746",
+                            "on-secondary-container": "#636262",
+                            "surface-tint": "#77592f",
+                            "border-hairline": "#E5E5E5",
+                            secondary: "#5f5e5e",
+                            "on-primary": "#ffffff",
+                            "inverse-surface": "#2f3131",
+                            "on-surface-variant": "#4e453b",
+                            "secondary-fixed-dim": "#c8c6c5",
+                            error: "#ba1a1a",
+                            "border-structural": "#CCCCCC",
+                            "on-secondary-fixed": "#1c1b1b",
+                            "on-primary-container": "#503710",
+                            "on-error-container": "#93000a",
+                            surface: "#F9F9F9",
+                            "primary-container": "#c5a070",
+                            "inverse-primary": "#e8c08d",
+                            "surface-container": "#eeeeee",
+                            "on-tertiary-container": "#3b3c3c",
+                            "surface-container-lowest": "#ffffff",
+                            "on-tertiary-fixed-variant": "#464747",
+                            "primary-fixed-dim": "#e8c08d",
+                            background: "#f9f9f9",
+                            "surface-subtle": "#F4F4F4",
+                            "on-primary-fixed": "#291800",
+                        },
+                        borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"},
+                        spacing: {"space-md": "1rem", "margin-mobile": "1.5rem", "space-xs": "0.25rem", "space-xl": "3.5rem", "gutter-mobile": "1rem", "space-sm": "0.5rem", "space-lg": "2rem", "space-2xl": "6rem", margin: "4rem", gutter: "2rem"},
+                        fontFamily: {"display-xl": ["Bodoni Moda"], "display-lg-mobile": ["Bodoni Moda"], "headline-md": ["Bodoni Moda"], "display-lg": ["Bodoni Moda"], "body-sm": ["Manrope"], "label-md": ["Manrope"], "label-sm": ["Manrope"], "display-xl-mobile": ["Bodoni Moda"], "label-lg": ["Manrope"], "body-lg": ["Manrope"], "headline-sm": ["Bodoni Moda"], "body-md": ["Manrope"]},
+                        fontSize: {"display-xl": ["72px", {lineHeight: "80px", letterSpacing: "-0.02em", fontWeight: "400"}], "display-lg-mobile": ["32px", {lineHeight: "40px", letterSpacing: "0em", fontWeight: "400"}], "headline-md": ["32px", {lineHeight: "40px", fontWeight: "400"}], "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.01em", fontWeight: "400"}], "body-sm": ["13px", {lineHeight: "20px", fontWeight: "400"}], "label-md": ["12px", {lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "600"}], "label-sm": ["10px", {lineHeight: "14px", letterSpacing: "0.15em", fontWeight: "700"}], "display-xl-mobile": ["44px", {lineHeight: "52px", letterSpacing: "-0.01em", fontWeight: "400"}], "label-lg": ["14px", {lineHeight: "20px", letterSpacing: "0.08em", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "headline-sm": ["24px", {lineHeight: "32px", fontWeight: "400"}], "body-md": ["15px", {lineHeight: "24px", fontWeight: "400"}]},
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+            <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
+                <div class="flex items-center gap-4 shrink-0">
+                    <img alt="logo-completa.jpeg" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WQIgoxbeiAWR1qPc5MmNrPAZLokhw6xPMuohMqZY1V6VoCTp2NbwI0p4TtcEjd-1TlUKXsRNZGh4U6j8OjvFGrQiC0qL5F7LpDbaGuZY8XP8NNha016YKKO8o9LLrouPI4DdIAeeFc7HpfiwcVIpE5PuCy1MfSSeHV4zjtJp5bvmeXAkr1e8LJYW8R7NCaodNAQnPSrqNKHymdjnx6q1xiwK4wAqVRj_zFUoO9j1R1hSjG8lB6N-BTPhMeVe_fVlFumStzQBL7bw" />
+                    <div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface leading-none">EMME</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-outline leading-tight">Engenharia &amp; Arquitetura</span></div>
+                </div>
+                <nav class="hidden md:flex items-center gap-8" data-active-classes="text-on-surface font-semibold underline underline-offset-8 decoration-primary-container"><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="sobre-nos" href="#">Sobre nós</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="servicos" href="#">Serviços</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="projetos" href="#">Projetos</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="contato" href="#">Contato</a></nav>
+                <div class="flex items-center gap-5 shrink-0">
+                    <a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase px-6 py-3 tracking-widest hover:bg-inverse-surface hover:text-inverse-on-surface transition-all duration-150" data-path="solicitar-orcamento" href="#">Solicitar Orçamento</a>
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+                </div>
+            </div>
+        </header>
+        <main class="w-full pt-20 bg-background min-h-screen">
+            <div class="flex flex-col w-full">
+                <!-- 1. HERO SECTION -->
+                <section class="relative w-full bg-surface-container-lowest overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                            <!-- Hero Text Column -->
+                            <div class="lg:col-span-6 flex flex-col gap-6 z-10">
+                                <div class="inline-flex items-center gap-3">
+                                    <span class="w-8 h-px bg-primary-container"></span>
+                                    <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold"> PROJETOS COMPLEMENTARES | PORTFOLIO </span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="font-display-xl text-display-xl text-on-surface leading-tight tracking-tight">EMME Engenharia e Arquitetura</h1>
+                                    <p class="font-headline-sm text-headline-sm italic text-outline font-light">Por José Cleiton e Gabrielle Rocha</p>
+                                </div>
+                                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">Projetando com rigor técnico, compatibilização inteligente e modelagem BIM para levar segurança à sua obra.</p>
+                                <div class="flex flex-wrap items-center gap-4 pt-4">
+                                    <a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase px-8 py-4 tracking-widest hover:bg-inverse-surface hover:text-inverse-on-surface transition-all duration-150" href="#projetos-executados"> Ver Projetos </a>
+                                    <a class="inline-flex items-center justify-center bg-transparent border border-on-surface text-on-surface font-label-lg text-label-lg uppercase px-8 py-4 tracking-widest hover:bg-on-surface hover:text-surface-container-lowest transition-all duration-150" href="#contato-orcamento"> Solicitar Orçamento </a>
+                                </div>
+                                <div class="grid grid-cols-2 gap-6 pt-8 mt-4 border-t border-hairline">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary text-2xl">view_in_ar</span>
+                                        <div class="flex flex-col">
+                                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Metodologia</span>
+                                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">100% BIM Integrado</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+                                        <div class="flex flex-col">
+                                            <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Padrão Executivo</span>
+                                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Precisão Construtiva</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Hero Visual Column -->
+                            <div class="lg:col-span-6 relative">
+                                <div class="relative w-full aspect-[4/3] lg:aspect-[1/1] overflow-hidden bg-surface-container border border-hairline">
+                                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105" data-alt="Bespoke luxury cantilevered architectural villa over a serene cliff overlooking the Mediterranean sea, floor-to-ceiling glass, linear raw concrete slabs, natural stone walls, minimalist infinity pool, bright architectural daylight photography style" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB5BUDQcDfJp9_B0RQgGSqRC5BoXymyTZBGIRBYtCvbP3CGJFzdGuBopGPtqWEMclVbdpbeyXjbBGDTGFmp59pZzdaVrEQFZgzAnkpMjdSjTl1nU_Rlv6h0zPNTpFpOFgBz3-eiSEKLQS7053j4pxFgrYjvTrBZx31uT6ql_uF1kod7PHxU6YzZoKlvCEhO12rde1KygACC2byYOcT7mkOHs3HDG5ldqZy54XU63c7ZM1k7-4XawQhO&quot;)"></div>
+                                    <!-- Planar Technical Badges -->
+                                    <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row gap-3">
+                                        <div class="bg-surface-container-lowest/95 backdrop-blur-sm p-4 border border-hairline flex items-center gap-3 flex-1 shadow-sm">
+                                            <span class="w-2.5 h-2.5 bg-primary-container shrink-0"></span>
+                                            <div>
+                                                <div class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Status BIM</div>
+                                                <div class="font-label-md text-label-md uppercase text-on-surface font-bold">100% BIM Compatibilizado</div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-inverse-surface/95 backdrop-blur-sm p-4 border border-inverse-surface flex items-center gap-3 flex-1 shadow-sm">
+                                            <span class="material-symbols-outlined text-primary-fixed text-lg">straighten</span>
+                                            <div>
+                                                <div class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed-dim">Nível de Detalhe</div>
+                                                <div class="font-label-md text-label-md uppercase text-inverse-on-surface font-bold">Precisão Executiva</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 2. SOBRE NÓS -->
+                <section class="w-full bg-surface border-t border-hairline" id="sobre-nos">
+                    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                            <!-- Founders & Identity Left Column -->
+                            <div class="lg:col-span-5 flex flex-col gap-8">
+                                <div class="flex flex-col gap-2">
+                                    <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">SOBRE NÓS</span>
+                                    <h2 class="font-display-lg text-display-lg text-on-surface leading-tight">Olá, somos EMME Engenharia e Arquitetura.</h2>
+                                </div>
+                                <div class="p-8 bg-surface-container-lowest border border-hairline flex flex-col items-center text-center gap-6">
+                                    <img alt="Logo EMME" class="w-28 h-28 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgsogZNqoNRwGaIqRePJZtGZs2gudhLaGkfn6NQ5N0gOphPRWYWetZC_Mb5Nn3_1UmKooMsxcrAtytT_VLmKbbOZXxP4_Q4Bl6C-q1v_UWWe4uMqHfNTINT8yzzDIXSefcbSii3nStxlZSiCqZRfoY8-uV1VV-077nuGu4vePjcxhjIGgDgSKjhhFMgMPTFPuXNNFrXSeCSoAad4X_3qHnSa-hYN9ygMxeROOqALdJferHvwGrIuOlb20bfG90ASHetw" />
+                                    <div class="w-full border-t border-hairline pt-6 flex flex-col gap-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">José Cleiton</span>
+                                            <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Engenheiro Civil</span>
+                                        </div>
+                                        <div class="flex items-center justify-between border-t border-hairline pt-3">
+                                            <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Gabrielle Rocha</span>
+                                            <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Arquiteta</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-surface-container-low border-l-2 border-primary-container">
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant italic">"Unindo cálculo estrutural de alta precisão e sensibilidade projetual em harmonia com as demandas contemporâneas de obra."</p>
+                                </div>
+                            </div>
+                            <!-- Narrative & Value Propositions Right Column -->
+                            <div class="lg:col-span-7 flex flex-col gap-8">
+                                <div class="flex flex-col gap-6 text-on-surface-variant font-body-lg text-body-lg leading-relaxed">
+                                    <p>Por trás da EMME, estamos nós: José Cleiton (Engenheiro Civil) e Gabrielle Rocha (Arquiteta). Como casal e sócios, acreditamos que grandes projetos nascem de conexões fortes. É por isso que criamos um modelo focado em parcerias duradouras com arquitetos e construtoras.</p>
+                                    <p>Enquanto você foca no comercial e na criação, nós assumimos a produção técnica: detalhamentos executivos rigorosos, engenharia integrada e compatibilização inteligente. Queremos ser os parceiros que dão a segurança técnica que o seu negócio precisa para crescer.</p>
+                                </div>
+                                <!-- Highlight Metric Cards -->
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-hairline">
+                                    <div class="p-6 bg-surface-container-lowest border border-hairline flex flex-col gap-2">
+                                        <span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+                                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Execução</span>
+                                        <span class="font-headline-sm text-headline-sm text-on-surface font-medium leading-tight">Desperdício Zero em Obra</span>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Quantitativos exatos e rotas de instalações livres de colisões físicas.</p>
+                                    </div>
+                                    <div class="p-6 bg-surface-container-lowest border border-hairline flex flex-col gap-2">
+                                        <span class="material-symbols-outlined text-primary text-3xl">layers</span>
+                                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tecnologia</span>
+                                        <span class="font-headline-sm text-headline-sm text-on-surface font-medium leading-tight">Compatibilização 3D/BIM</span>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Integração visual e paramétrica entre estrutura, hidráulica e elétrica.</p>
+                                    </div>
+                                    <div class="p-6 bg-surface-container-lowest border border-hairline flex flex-col gap-2">
+                                        <span class="material-symbols-outlined text-primary text-3xl">public</span>
+                                        <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Alcance</span>
+                                        <span class="font-headline-sm text-headline-sm text-on-surface font-medium leading-tight">Projetos para todo o Brasil</span>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Metodologia 100% digital, entregas pontuais e alinhamento remoto contínuo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 3. SERVIÇOS -->
+                <section class="w-full bg-surface-container-low border-t border-hairline" id="servicos">
+                    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                            <div class="flex flex-col gap-3 max-w-2xl">
+                                <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">NOSSAS ESPECIALIDADES</span>
+                                <h2 class="font-display-lg text-display-lg text-on-surface">Somos profissionais em Projetos Complementares.</h2>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface-variant max-w-md">Desenvolvemos soluções completas em BIM para garantir a máxima eficiência, compatibilização e economia na sua obra.</p>
+                        </div>
+                        <!-- 3 Distinct Architectural Service Cards -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <!-- Card 1: Estruturais -->
+                            <div class="bg-surface-container-lowest border border-hairline p-8 lg:p-10 flex flex-col justify-between group hover:border-primary-container transition-colors duration-200">
+                                <div class="flex flex-col gap-6">
+                                    <div class="flex items-center justify-between pb-6 border-b border-hairline">
+                                        <span class="font-label-sm text-label-sm tracking-widest text-outline uppercase">01 / ENGENHARIA</span>
+                                        <span class="material-symbols-outlined text-primary text-2xl">domain</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Projetos Estruturais</h3>
+                                        <p class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Concreto Armado e Alvenaria Estrutural</p>
+                                    </div>
+                                    <p class="font-body-md text-body-md text-on-surface-variant">Dimensionamento apurado focado em consumo racional de aço e concreto, garantindo estabilidade e integridade estrutural perfeitamente integradas à intenção plástica do arquiteto.</p>
+                                    <ul class="flex flex-col gap-3 pt-4 border-t border-hairline font-body-sm text-body-sm text-on-surface">
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Modelagem tridimensional de ferragens</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Cálculo otimizado e memorial descritivo</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Relatórios executivos e quantitativos exatos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pt-8 mt-6">
+                                    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface flex items-center gap-2 group-hover:text-primary transition-colors" href="#contato-orcamento">
+                                        Solicitar Proposta Técnica
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 2: Hidrossanitários -->
+                            <div class="bg-surface-container-lowest border border-hairline p-8 lg:p-10 flex flex-col justify-between group hover:border-primary-container transition-colors duration-200">
+                                <div class="flex flex-col gap-6">
+                                    <div class="flex items-center justify-between pb-6 border-b border-hairline">
+                                        <span class="font-label-sm text-label-sm tracking-widest text-outline uppercase">02 / FLUIDOS</span>
+                                        <span class="material-symbols-outlined text-primary text-2xl">water_drop</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Projetos Hidrossanitários</h3>
+                                        <p class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Sistemas Hidráulicos &amp; Drenagem</p>
+                                    </div>
+                                    <p class="font-body-md text-body-md text-on-surface-variant">Sistemas de água fria, água quente, esgoto sanitário, águas pluviais, ventilação e sistemas de piscina com rotas limpas e sem improvisação.</p>
+                                    <ul class="flex flex-col gap-3 pt-4 border-t border-hairline font-body-sm text-body-sm text-on-surface">
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Isométricos 3D com identificação de conexões</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Verificação rigorosa de declividades e passagens</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Zero interferência com elementos estruturais</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pt-8 mt-6">
+                                    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface flex items-center gap-2 group-hover:text-primary transition-colors" href="#contato-orcamento">
+                                        Solicitar Proposta Técnica
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 3: Elétricos -->
+                            <div class="bg-surface-container-lowest border border-hairline p-8 lg:p-10 flex flex-col justify-between group hover:border-primary-container transition-colors duration-200">
+                                <div class="flex flex-col gap-6">
+                                    <div class="flex items-center justify-between pb-6 border-b border-hairline">
+                                        <span class="font-label-sm text-label-sm tracking-widest text-outline uppercase">03 / ENERGIA</span>
+                                        <span class="material-symbols-outlined text-primary text-2xl">bolt</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Projetos Elétricos</h3>
+                                        <p class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Baixa Tensão Residencial</p>
+                                    </div>
+                                    <p class="font-body-md text-body-md text-on-surface-variant">Projetos elétricos para empreendimentos residenciais unifamiliares e multifamiliares de alto padrão, dimensionados com foco na segurança e conformidade normativa.</p>
+                                    <ul class="flex flex-col gap-3 pt-4 border-t border-hairline font-body-sm text-body-sm text-on-surface">
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Circuitos perfeitamente equilibrados por fase</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Detalhamento minucioso de quadros de carga (QDC)</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 bg-primary-container shrink-0"></span>
+                                            <span>Compatibilização fina com luminotécnico</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pt-8 mt-6">
+                                    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface flex items-center gap-2 group-hover:text-primary transition-colors" href="#contato-orcamento">
+                                        Solicitar Proposta Técnica
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 4. PROJETOS EXECUTADOS -->
+                <section class="w-full bg-surface border-t border-hairline" id="projetos-executados">
+                    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+                        <!-- Section Header -->
+                        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                            <div class="flex flex-col gap-2">
+                                <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">PORTFÓLIO DE PROJETOS</span>
+                                <h2 class="font-display-lg text-display-lg text-on-surface">Projetos Executados</h2>
+                                <p class="font-body-md text-body-md text-on-surface-variant">Modelos e projetos complementares desenvolvidos em BIM.</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-hairline font-label-sm text-label-sm uppercase tracking-wider text-on-surface"> <span class="w-2 h-2 bg-primary"></span> Suporte IFC 3D </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-hairline font-label-sm text-label-sm uppercase tracking-wider text-on-surface"> <span class="material-symbols-outlined text-sm">picture_as_pdf</span> Cadernos Executivos </span>
+                            </div>
+                        </div>
+                        <!-- Project Cards Grid -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <!-- Project 1: CASA JL -->
+                            <article class="bg-surface-container-lowest border border-hairline flex flex-col group">
+                                <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container">
+                                    <img alt="CASA JL - Light Steel Frame e Vidro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6bHhtbGTtTBxI2gF2e1RTn-SdTQOdgGPveYg6yuTrwqK38pPSx-TFy0cOErloIgBfwSHPA6URMZsshD6DzhLhZoe44Abf8uxrmLlHUQ9v7aBR7uPDBqTSdXafs7lYjb9xq0spU2GdDPO7x_y-NAkDHe2bFivKRD_gvrA0jL5JMz1cVKD5jxfU_I3IwmM8lJXbqr8PFcONljEyR787Gv570R5j3xuoRQtb5xRjB5AXP84Hfl4pUc04" />
+                                    <div class="absolute top-4 left-4 bg-inverse-surface/90 text-inverse-on-surface px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">LSF &amp; Estrutural</div>
+                                    <div class="absolute bottom-4 right-4 flex gap-2">
+                                        <span class="bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 text-on-surface font-label-sm text-label-sm uppercase tracking-wider border border-hairline flex items-center gap-1"> <span class="material-symbols-outlined text-[14px] text-primary">view_in_ar</span> 3D IFC </span>
+                                    </div>
+                                </div>
+                                <div class="p-6 lg:p-8 flex flex-col gap-4 flex-1 justify-between">
+                                    <div class="flex flex-col gap-3">
+                                        <div class="flex items-baseline justify-between border-b border-hairline pb-3">
+                                            <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">CASA JL</h3>
+                                            <span class="font-label-sm text-label-sm uppercase text-outline">Ano 2026</span>
+                                        </div>
+                                        <p class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Parceiro / Cliente: Leão Engenharia</p>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-6 group-hover:line-clamp-none transition-all duration-300">Este projeto foi desenvolvido para uma residência de alto padrão estruturada em Light Steel Frame (LSF), onde a engenharia de detalhamento foi levada ao limite. Por se tratar de um método construtivo industrializado e modular, cada centímetro importa. O grande diferencial deste trabalho foi a compatibilização minuciosa entre a estrutura de aço e as redes hidráulicas e elétricas, garantindo desperdício zero de material e evitando qualquer interferência na integridade dos perfis estruturais.</p>
+                                    </div>
+                                    <div class="pt-6 border-t border-hairline flex items-center justify-between gap-4">
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors" onclick="document.getElementById('modal-bim').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">visibility</span> Visualização 3D</button>
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-outline hover:text-on-surface transition-colors" onclick="document.getElementById('modal-pdf').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">description</span> PDF Projeto</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Project 2: CASA MAURÍCIO -->
+                            <article class="bg-surface-container-lowest border border-hairline flex flex-col group">
+                                <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container">
+                                    <img alt="CASA MAURÍCIO - Estrutura Concreto Armado" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsQoTS3D-fLcXVGqYRQCCPrK0auMarveUIMTXQ0rWVf50-VQNSUI8bNNTuDlc-MLayXUtynKv-ZGw0tGO3C4RaKTfi8l7tNHg6ywt4C5cmBMaC46iYJPz1A2F9xAgM1cKnn3r4SboJ96Ni9PQk-qNsHMAvMrU3eEIADehSqpn36ORER17NFtZuuFyQ8zV3NlkjqHgD6H6WK9bIZNnTONX9N22ua60AxsbwYCc4PtxILBR_R8T8cC1n" />
+                                    <div class="absolute top-4 left-4 bg-inverse-surface/90 text-inverse-on-surface px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">Hidrossanitário</div>
+                                    <div class="absolute bottom-4 right-4 flex gap-2">
+                                        <span class="bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 text-on-surface font-label-sm text-label-sm uppercase tracking-wider border border-hairline flex items-center gap-1"> <span class="material-symbols-outlined text-[14px] text-primary">view_in_ar</span> 3D IFC </span>
+                                    </div>
+                                </div>
+                                <div class="p-6 lg:p-8 flex flex-col gap-4 flex-1 justify-between">
+                                    <div class="flex flex-col gap-3">
+                                        <div class="flex items-baseline justify-between border-b border-hairline pb-3">
+                                            <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">CASA MAURÍCIO</h3>
+                                            <span class="font-label-sm text-label-sm uppercase text-outline">Ano 2026</span>
+                                        </div>
+                                        <p class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Parceiro / Cliente: Engenheiro Ivanilton</p>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-6 group-hover:line-clamp-none transition-all duration-300">Desenvolvido para uma residência de médio/alto padrão em estrutura de concreto armado, este projeto hidrossanitário teve como premissa máxima a compatibilização prévia. Através de uma análise rigorosa e integrada, todas as interferências entre os sistemas de fluidos e a estrutura foram resolvidas na fase de projeto, mitigando riscos e eliminando completamente qualquer necessidade de quebras ou retrabalho durante a execução da obra.</p>
+                                    </div>
+                                    <div class="pt-6 border-t border-hairline flex items-center justify-between gap-4">
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors" onclick="document.getElementById('modal-bim').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">visibility</span> Visualização 3D</button>
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-outline hover:text-on-surface transition-colors" onclick="document.getElementById('modal-pdf').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">description</span> PDF Projeto</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Project 3: CASA FELIPE MERLO -->
+                            <article class="bg-surface-container-lowest border border-hairline flex flex-col group">
+                                <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container">
+                                    <img alt="CASA FELIPE MERLO - Instalações Elétricas BIM" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJfcng8wcWGx4BwN_QTYX7EqK_tRXqQQ9CakkMqKuP-4P_HmWbi0G-SSBcBfvf_71__ejE984_X9mxBn45f50JMXFRe_12Wqga6UJOYjmCShQ557iMC-7B_YQByNglO5RZQWAXBqnbNB1GiTjSGse3cHbtjmin87E9GAhMczU_ReTqkCqjEAxR6KSogjHpRSkw9kNa5eWfJO3q1jYowtIhX-6N-5_QwaKhiUMgyOa7lkTS42ndIFP2" />
+                                    <div class="absolute top-4 left-4 bg-inverse-surface/90 text-inverse-on-surface px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest">Elétrico &amp; Iluminação</div>
+                                    <div class="absolute bottom-4 right-4 flex gap-2">
+                                        <span class="bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 text-on-surface font-label-sm text-label-sm uppercase tracking-wider border border-hairline flex items-center gap-1"> <span class="material-symbols-outlined text-[14px] text-primary">view_in_ar</span> 3D IFC </span>
+                                    </div>
+                                </div>
+                                <div class="p-6 lg:p-8 flex flex-col gap-4 flex-1 justify-between">
+                                    <div class="flex flex-col gap-3">
+                                        <div class="flex items-baseline justify-between border-b border-hairline pb-3">
+                                            <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">CASA FELIPE MERLO</h3>
+                                            <span class="font-label-sm text-label-sm uppercase text-outline">Ano 2026</span>
+                                        </div>
+                                        <p class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Parceiro / Cliente: Leão Engenharia</p>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-6 group-hover:line-clamp-none transition-all duration-300">Na Casa Felipe Merlo, fomos responsáveis pelo desenvolvimento do projeto elétrico, planejado especificamente para uma residência que mescla estrutura de concreto e Light Steel Frame (LSF). Através da modelagem em ambiente BIM, todas as redes de instalações elétricas e iluminação foram previamente detalhadas para conversar perfeitamente com a modulação dos perfis de aço. Essa precisão técnica elimina improvisos na obra, otimiza o tempo da equipe de eletricistas e entrega um guia executivo de altíssima fidelidade para o construtor.</p>
+                                    </div>
+                                    <div class="pt-6 border-t border-hairline flex items-center justify-between gap-4">
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors" onclick="document.getElementById('modal-bim').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">visibility</span> Visualização 3D</button>
+                                        <button class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-outline hover:text-on-surface transition-colors" onclick="document.getElementById('modal-pdf').classList.remove('hidden')"><span class="material-symbols-outlined text-[16px]">description</span> PDF Projeto</button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <!-- 5. CONTATO E SOLICITAR ORÇAMENTO -->
+                <section class="w-full bg-surface-container-lowest border-t border-hairline" id="contato-orcamento">
+                    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                            <!-- Contact Information Column -->
+                            <div class="lg:col-span-5 flex flex-col justify-between">
+                                <div class="flex flex-col gap-6">
+                                    <div class="flex flex-col gap-2">
+                                        <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">CONTATO &amp; PARCERIAS</span>
+                                        <h2 class="font-display-lg text-display-lg text-on-surface">Vamos construir juntos?</h2>
+                                    </div>
+                                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Solicite uma proposta técnica ou inicie uma parceria de projetos complementares para os próximos lançamentos de seu escritório.</p>
+                                    <div class="pt-8 border-t border-hairline flex flex-col gap-6">
+                                        <!-- Brand Identity Badge -->
+                                        <div class="flex items-center gap-4">
+                                            <img alt="Logo Completa EMME" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvxk2sculmDQK2gO_DfgVzYoesxXIkyo3ypkdBFtGkTzldy8amKH2LuICa_Kkjw_4HLroNkHp6TPT5m3OVfOG0Ny5FbDKjMt079uZX_WykrJ0-QDxDu0b9K9mwX4qGRab2FkxNwCZ-2BuMEiPTZLrORHEt--31ZsuTi3KGedHWW56cZveYJOFSm5eadwBR4Y6Ie1DvVhUarj9rt54gaxpx4So-_roL0U9W72jrtwktQz3JZr240sdETq84mQujnKQ8Kw" />
+                                        </div>
+                                        <!-- Scope info -->
+                                        <div class="flex items-start gap-4">
+                                            <span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">location_on</span>
+                                            <div>
+                                                <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline block">Atendimento</span>
+                                                <span class="font-body-md text-body-md text-on-surface font-semibold">Atendimento Digital | Projetos para todo o Brasil</span>
+                                            </div>
+                                        </div>
+                                        <!-- WhatsApp -->
+                                        <div class="flex items-start gap-4">
+                                            <span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">chat</span>
+                                            <div>
+                                                <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline block">Telefone / WhatsApp</span>
+                                                <a class="font-body-md text-body-md text-on-surface font-semibold hover:text-primary transition-colors" href="https://wa.me/5584994939243" rel="noopener noreferrer" target="_blank"> (84) 99493-9243 </a>
+                                                <div class="mt-2">
+                                                    <a class="inline-flex items-center gap-2 bg-surface-container border border-hairline px-4 py-2 font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:bg-on-surface hover:text-surface-container-lowest transition-colors" href="https://wa.me/5584994939243" rel="noopener noreferrer" target="_blank"> <span class="material-symbols-outlined text-base">send</span> Iniciar Conversa Direta </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Email -->
+                                        <div class="flex items-start gap-4">
+                                            <span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">mail</span>
+                                            <div>
+                                                <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline block">E-mail</span>
+                                                <a class="font-body-md text-body-md text-on-surface font-semibold hover:text-primary transition-colors" href="mailto:emmeengarq@gmail.com"> emmeengarq@gmail.com </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-8 mt-8 border-t border-hairline">
+                                    <p class="font-body-sm text-body-sm text-outline">Atendimento exclusivo para arquitetos parceiros, engenheiros e construtoras com acompanhamento técnico contínuo em todas as fases.</p>
+                                </div>
+                            </div>
+                            <!-- Interactive Form Column -->
+                            <div class="lg:col-span-7 bg-surface p-8 lg:p-12 border border-hairline">
+                                <form
+                                    class="flex flex-col gap-6"
+                                    onsubmit="
+                                        event.preventDefault();
+                                        document.getElementById('form-feedback').classList.remove('hidden');
+                                    "
+                                >
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div class="flex flex-col gap-2">
+                                            <label class="font-label-sm text-label-sm uppercase tracking-widest text-outline" for="nome">Nome Completo *</label>
+                                            <input class="w-full bg-surface-container-lowest border border-border-structural p-3.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container" id="nome" placeholder="Ex: Roberto Silva" required="" type="text" />
+                                        </div>
+                                        <div class="flex flex-col gap-2">
+                                            <label class="font-label-sm text-label-sm uppercase tracking-widest text-outline" for="email">E-mail Corporativo / Pessoal *</label>
+                                            <input class="w-full bg-surface-container-lowest border border-border-structural p-3.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container" id="email" placeholder="Ex: contato@escritorio.arq.br" required="" type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div class="flex flex-col gap-2">
+                                            <label class="font-label-sm text-label-sm uppercase tracking-widest text-outline" for="telefone">Telefone / WhatsApp *</label>
+                                            <input class="w-full bg-surface-container-lowest border border-border-structural p-3.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container" id="telefone" placeholder="Ex: (84) 99999-9999" required="" type="tel" />
+                                        </div>
+                                        <div class="flex flex-col gap-2">
+                                            <label class="font-label-sm text-label-sm uppercase tracking-widest text-outline" for="tipo_projeto">Tipo de Projeto Desejado *</label>
+                                            <select class="w-full bg-surface-container-lowest border border-border-structural p-3.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container" id="tipo_projeto" required="">
+                                                <option disabled="" selected="" value="">Selecione a disciplina</option>
+                                                <option value="estrutural">Projeto Estrutural (Concreto / Alvenaria / LSF)</option>
+                                                <option value="hidrossanitario">Projeto Hidrossanitário Completo</option>
+                                                <option value="eletrico">Projeto Elétrico de Baixa Tensão</option>
+                                                <option value="bim_completo">Pacote Completo Integrado em BIM</option>
+                                                <option value="consultoria">Parceria Contínua para Escritório</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="font-label-sm text-label-sm uppercase tracking-widest text-outline" for="mensagem">Detalhes da Demanda / Mensagem *</label>
+                                        <textarea class="w-full bg-surface-container-lowest border border-border-structural p-3.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container resize-none" id="mensagem" placeholder="Descreva brevemente a metragem estimada, localidade da obra, prazos ou necessidades de compatibilização..." required="" rows="4"></textarea>
+                                    </div>
+                                    <button class="w-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase py-4 px-8 tracking-widest hover:bg-inverse-surface hover:text-inverse-on-surface transition-all duration-150 flex items-center justify-center gap-2" type="submit">
+                                        <span>Enviar Solicitação de Orçamento</span>
+                                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                                    </button>
+                                    <!-- Feedback Message Container -->
+                                    <div class="hidden p-4 bg-surface-container border border-primary-container text-on-surface" id="form-feedback">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                                            <span class="font-body-sm text-body-sm font-medium">Sua solicitação foi enviada com sucesso! Nossa equipe técnica entrará em contato em até 24 horas úteis.</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Interactive Modal: Visualizador IFC / BIM -->
+                <div class="fixed inset-0 z-50 hidden bg-inverse-surface/80 backdrop-blur-sm flex items-center justify-center p-4" id="modal-bim">
+                    <div class="bg-surface-container-lowest max-w-2xl w-full border border-hairline p-8 flex flex-col gap-6 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-hairline pb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-2xl">view_in_ar</span>
+                                <h4 class="font-headline-sm text-headline-sm text-on-surface">Ambiente de Inspeção BIM / IFC</h4>
+                            </div>
+                            <button class="text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('modal-bim').classList.add('hidden')">
+                                <span class="material-symbols-outlined text-2xl">close</span>
+                            </button>
+                        </div>
+                        <div class="bg-surface-container p-8 text-center flex flex-col items-center gap-4 border border-hairline">
+                            <span class="material-symbols-outlined text-4xl text-outline">model_training</span>
+                            <div class="flex flex-col gap-1">
+                                <span class="font-headline-sm text-headline-sm text-on-surface">Visualizador Tridimensional Interativo</span>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Carregamento do arquivo IFC com camadas estruturais, tubulações e eletrodutos compatibilizados.</p>
+                            </div>
+                            <div class="flex items-center gap-4 text-left w-full max-w-md bg-surface-container-lowest p-4 border border-hairline">
+                                <div class="w-3 h-3 bg-primary-container"></div>
+                                <div class="text-xs text-on-surface-variant font-mono">Status: Pronto para navegação e inspeção de interferências.</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-4">
+                            <button class="px-6 py-2 border border-on-surface font-label-md text-label-md uppercase tracking-wider text-on-surface hover:bg-on-surface hover:text-surface-container-lowest" onclick="document.getElementById('modal-bim').classList.add('hidden')">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Modal: Caderno Executivo PDF -->
+                <div class="fixed inset-0 z-50 hidden bg-inverse-surface/80 backdrop-blur-sm flex items-center justify-center p-4" id="modal-pdf">
+                    <div class="bg-surface-container-lowest max-w-lg w-full border border-hairline p-8 flex flex-col gap-6 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-hairline pb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-2xl">picture_as_pdf</span>
+                                <h4 class="font-headline-sm text-headline-sm text-on-surface">Caderno de Pranchas Técnicas</h4>
+                            </div>
+                            <button class="text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('modal-pdf').classList.add('hidden')">
+                                <span class="material-symbols-outlined text-2xl">close</span>
+                            </button>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant">O caderno completo deste projeto inclui plantas de forma, esquemas unifilares, detalhes isométricos hidráulicos e lista discriminada de insumos.</p>
+                        <div class="flex items-center justify-between p-4 bg-surface-container border border-hairline">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">download</span>
+                                <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">memorial_executivo_2026.pdf</span>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-outline">18.4 MB</span>
+                        </div>
+                        <div class="flex justify-end gap-3">
+                            <button class="px-6 py-2 border border-on-surface font-label-md text-label-md uppercase tracking-wider text-on-surface hover:bg-on-surface hover:text-surface-container-lowest" onclick="document.getElementById('modal-pdf').classList.add('hidden')">Fechar</button>
+                            <a class="px-6 py-2 bg-primary-container font-label-md text-label-md uppercase tracking-wider text-on-primary-container hover:bg-inverse-surface hover:text-inverse-on-surface" href="#contato-orcamento" onclick="document.getElementById('modal-pdf').classList.add('hidden')"> Solicitar Amostra </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="w-full bg-surface text-on-surface">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+                    <div class="lg:col-span-5 flex flex-col gap-6">
+                        <div class="flex items-center gap-4">
+                            <img alt="logo-completa.jpeg" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WQIgoxbeiAWR1qPc5MmNrPAZLokhw6xPMuohMqZY1V6VoCTp2NbwI0p4TtcEjd-1TlUKXsRNZGh4U6j8OjvFGrQiC0qL5F7LpDbaGuZY8XP8NNha016YKKO8o9LLrouPI4DdIAeeFc7HpfiwcVIpE5PuCy1MfSSeHV4zjtJp5bvmeXAkr1e8LJYW8R7NCaodNAQnPSrqNKHymdjnx6q1xiwK4wAqVRj_zFUoO9j1R1hSjG8lB6N-BTPhMeVe_fVlFumStzQBL7bw" />
+                            <div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface leading-none">EMME</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-outline leading-tight">Engenharia &amp; Arquitetura</span></div>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-md">Atelier técnico unificando rigor de engenharia estrutural e precisão arquitetônica contemporânea. Projetos autorais e consultorias com modelagem integrada para máxima fidelidade executiva.</p>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 bg-primary-container"></span><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Atendimento Digital | Projetos para todo o Brasil</span></div>
+                    </div>
+                    <div class="lg:col-span-3 flex flex-col gap-4">
+                        <span class="font-label-lg text-label-lg uppercase text-on-surface tracking-wider">Navegação</span>
+                        <nav class="flex flex-col gap-3" data-active-classes="text-on-surface font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sobre-nos" href="#">Sobre nós</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="servicos" href="#">Serviços Especializados</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="projetos" href="#">Projetos &amp; Portfólio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contato" href="#">Contato &amp; Atendimento</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="solicitar-orcamento" href="#">Solicitar Orçamento</a></nav>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col gap-4">
+                        <span class="font-label-lg text-label-lg uppercase text-on-surface tracking-wider">Escritório &amp; Contato</span>
+                        <div class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-[20px] shrink-0">phone</span>
+                                <div><span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline">Telefone / WhatsApp</span><a class="hover:text-on-surface transition-colors" href="https://wa.me/5584994939243">(84) 99493-9243</a></div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-[20px] shrink-0">mail</span>
+                                <div><span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline">Correio Eletrônico</span><a class="hover:text-on-surface transition-colors" href="mailto:emmeengarq@gmail.com">emmeengarq@gmail.com</a></div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-[20px] shrink-0">schedule</span>
+                                <div><span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline">Expediente</span><span>Segunda a Sexta — 08:00 às 18:00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2026 EMME Engenharia e Arquitetura. By José Cleiton e Gabrielle Rocha. Todos os direitos reservados.</p>
+                    <div class="flex items-center gap-6 font-label-sm text-label-sm uppercase tracking-widest text-outline"><a class="hover:text-on-surface transition-colors" data-path="privacidade" href="#">Privacidade</a><a class="hover:text-on-surface transition-colors" data-path="termos" href="#">Termos</a></div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

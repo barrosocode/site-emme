@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EMME Engenharia e Arquitetura — Projetos Complementares</title>
+        <meta name="description" content="EMME Engenharia e Arquitetura. Projetos complementares em BIM: estrutural, hidrossanitário e elétrico, com compatibilização para arquitetos e construtoras em todo o Brasil." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#BD976A",
+                            secondary: "#cccccc",
+                            background: "#ffffff",
+                            surface: "#f9f9f9",
+                            "on-background": "#000000",
+                            "on-surface": "#000000",
+                            "on-primary": "#ffffff",
+                        },
+                        fontFamily: {
+                            display: ["Outfit", "sans-serif"],
+                            body: ["Manrope", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                overflow-x: clip;
+            }
+            section {
+                scroll-margin-top: 5.5rem;
+            }
+            img,
+            iframe {
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            p {
+                overflow-wrap: break-word;
+            }
+            #project-dots button[aria-current="true"] {
+                background: #bd976a;
+                border-color: #bd976a;
+            }
+            #sobre-zoom {
+                transform-origin: center center;
+                will-change: transform;
+            }
+            #sobre-frame {
+                box-shadow: 0 0 0 0 rgba(189, 151, 106, 0);
+                transition: box-shadow 0.7s ease;
+            }
+            #sobre-frame.is-arrived {
+                box-shadow: 0 0 0 8px #bd976a;
+            }
+            body[data-fundo] {
+                background-color: #ffffff;
+                background-attachment: fixed;
+            }
+            body[data-fundo] > main > section,
+            body[data-fundo] > footer {
+                background-color: transparent;
+            }
+            body[data-fundo="degrade"] {
+                background-image:
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .74 0 0 0 0 .59 0 0 0 0 .42 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+                    radial-gradient(980px 620px at 8% 0%, rgba(189, 151, 106, 0.38), transparent 58%),
+                    radial-gradient(820px 540px at 100% 12%, rgba(189, 151, 106, 0.22), transparent 52%),
+                    linear-gradient(165deg, #ffffff 0%, #f6efe6 42%, #fffdfb 100%);
+                background-size: 160px 160px, auto, auto, auto;
+            }
+            body[data-fundo="linhas"] {
+                background-color: #fbfbfb;
+                background-image:
+                    linear-gradient(rgba(189, 151, 106, 0.22) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(189, 151, 106, 0.08) 1px, transparent 1px),
+                    linear-gradient(118deg, transparent 0 18%, rgba(189, 151, 106, 0.55) 18.15%, transparent 18.45%),
+                    linear-gradient(118deg, transparent 0 62%, rgba(189, 151, 106, 0.28) 62.12%, transparent 62.4%);
+                background-size: 100% 48px, 48px 100%, 100% 100%, 100% 100%;
+            }
+            body[data-fundo="confete"] {
+                background-color: #fffdfb;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='%23BD976A'%3E%3Ccircle cx='22' cy='28' r='3.2' opacity='.55'/%3E%3Crect x='78' y='18' width='16' height='3' rx='1' opacity='.45' transform='rotate(18 78 18)'/%3E%3Ccircle cx='150' cy='36' r='2' opacity='.35'/%3E%3Crect x='196' y='22' width='9' height='9' opacity='.3' transform='rotate(40 200 26)'/%3E%3Crect x='36' y='86' width='22' height='3' rx='1' opacity='.35' transform='rotate(-16 36 86)'/%3E%3Ccircle cx='118' cy='96' r='4' opacity='.22'/%3E%3Ccircle cx='188' cy='108' r='2.4' opacity='.5'/%3E%3Crect x='14' y='150' width='8' height='8' opacity='.28' transform='rotate(30 18 154)'/%3E%3Crect x='92' y='158' width='18' height='3' rx='1' opacity='.4' transform='rotate(8 92 158)'/%3E%3Ccircle cx='168' cy='170' r='3' opacity='.4'/%3E%3Crect x='206' y='154' width='12' height='3' rx='1' opacity='.32' transform='rotate(-24 206 154)'/%3E%3Ccircle cx='54' cy='206' r='2.2' opacity='.45'/%3E%3Crect x='130' y='208' width='7' height='7' opacity='.26' transform='rotate(45 133 211)'/%3E%3Ccircle cx='214' cy='214' r='3.4' opacity='.2'/%3E%3C/g%3E%3C/svg%3E");
+                background-size: 240px 240px;
+            }
+            body[data-fundo="misto"] {
+                background-color: #fff;
+                background-image:
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg fill='%23BD976A'%3E%3Ccircle cx='24' cy='40' r='2.6' opacity='.4'/%3E%3Crect x='120' y='28' width='14' height='2.5' rx='1' opacity='.35' transform='rotate(16 120 28)'/%3E%3Ccircle cx='220' cy='64' r='3' opacity='.28'/%3E%3Crect x='48' y='150' width='7' height='7' opacity='.25' transform='rotate(35 51 153)'/%3E%3Ccircle cx='176' cy='188' r='2' opacity='.4'/%3E%3Crect x='230' y='210' width='16' height='2.5' rx='1' opacity='.3' transform='rotate(-12 230 210)'/%3E%3C/g%3E%3C/svg%3E"),
+                    linear-gradient(118deg, transparent 0 22%, rgba(189, 151, 106, 0.45) 22.1%, transparent 22.35%),
+                    linear-gradient(rgba(189, 151, 106, 0.16) 1px, transparent 1px),
+                    radial-gradient(900px 520px at 0% 0%, rgba(189, 151, 106, 0.3), transparent 60%),
+                    linear-gradient(180deg, #ffffff 0%, #f8f3ec 100%);
+                background-size: 280px 280px, auto, 100% 72px, auto, auto;
+            }
+            #fundo-switch button[aria-pressed="true"] {
+                background: #bd976a;
+                color: #ffffff;
+                border-color: #bd976a;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+                #sobre-zoom {
+                    transform: none !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-background text-on-background font-body antialiased">
+        <header class="fixed inset-x-0 top-0 z-40 border-b border-secondary bg-background/95 backdrop-blur-md">
+            <div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 lg:px-12">
+                <a href="#topo" class="flex shrink-0 items-center transition duration-300 hover:scale-105">
+                    <img src="docs/fotos/logo.jpeg" alt="EMME Engenharia e Arquitetura" class="h-12 w-12 object-contain" />
+                </a>
+                <nav class="hidden items-center gap-8 md:flex" aria-label="Seções">
+                    <a class="text-xs font-semibold uppercase tracking-[0.16em] text-on-surface transition-colors duration-200 hover:text-primary" href="#sobre">Sobre nós</a>
+                    <a class="text-xs font-semibold uppercase tracking-[0.16em] text-on-surface transition-colors duration-200 hover:text-primary" href="#servicos">Serviços</a>
+                    <a class="text-xs font-semibold uppercase tracking-[0.16em] text-on-surface transition-colors duration-200 hover:text-primary" href="#projetos">Projetos</a>
+                    <a class="text-xs font-semibold uppercase tracking-[0.16em] text-on-surface transition-colors duration-200 hover:text-primary" href="#contato">Contato</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a class="hidden bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-on-primary transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:inline-flex" href="https://wa.me/5584994939243" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <button id="menu-btn" class="inline-flex h-11 items-center border border-secondary px-4 text-xs font-semibold uppercase tracking-[0.14em] transition duration-200 hover:border-primary hover:text-primary md:hidden" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+                </div>
+            </div>
+            <nav id="mobile-nav" class="hidden border-t border-secondary bg-background px-6 py-4 md:hidden" aria-label="Seções">
+                <div class="flex flex-col gap-4">
+                    <a class="text-sm font-semibold uppercase tracking-[0.14em] transition-colors hover:text-primary" href="#sobre">Sobre nós</a>
+                    <a class="text-sm font-semibold uppercase tracking-[0.14em] transition-colors hover:text-primary" href="#servicos">Serviços</a>
+                    <a class="text-sm font-semibold uppercase tracking-[0.14em] transition-colors hover:text-primary" href="#projetos">Projetos</a>
+                    <a class="text-sm font-semibold uppercase tracking-[0.14em] transition-colors hover:text-primary" href="#contato">Contato</a>
+                    <a class="text-sm font-semibold uppercase tracking-[0.14em] text-primary" href="https://wa.me/5584994939243" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="topo">
+            <section class="flex min-h-[100svh] flex-col justify-center bg-background pt-20">
+                <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-10 lg:grid-cols-12 lg:gap-16 lg:px-12">
+                    <div class="flex min-w-0 flex-col gap-6 lg:col-span-6">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Projetos complementares</p>
+                        <h1 class="max-w-full font-display text-4xl font-semibold leading-[1.1] tracking-tight text-on-background sm:text-5xl md:text-6xl">EMME Engenharia e Arquitetura</h1>
+                        <p class="max-w-xl text-lg leading-relaxed text-on-surface">Enquanto você cria, nós assumimos a engenharia: detalhamento executivo, compatibilização BIM e a segurança técnica para o seu projeto crescer.</p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a class="inline-flex bg-primary px-8 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-on-primary transition duration-200 hover:-translate-y-0.5 hover:shadow-lg" href="#projetos">Ver projetos</a>
+                            <a class="inline-flex border border-on-surface px-8 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition duration-200 hover:-translate-y-0.5 hover:bg-on-surface hover:text-background" href="#contato">Falar conosco</a>
+                        </div>
+                    </div>
+                    <div class="min-w-0 lg:col-span-6">
+                        <div class="group overflow-hidden border border-secondary bg-surface p-4 transition duration-300 hover:border-primary hover:shadow-lg">
+                            <img src="docs/fotos/hero.png" alt="Modelo tridimensional de estrutura em aço com lajes de concreto e instalações compatibilizadas" class="h-auto w-full object-contain transition duration-700 ease-out group-hover:scale-[1.04]" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre" class="border-t border-secondary bg-surface">
+                <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-28">
+                    <div class="min-w-0 lg:col-span-7">
+                        <div id="sobre-zoom">
+                            <div id="sobre-frame" class="group overflow-hidden bg-background shadow-sm transition duration-700">
+                                <img id="sobre-photo" src="docs/fotos/sobre-nos.png" alt="José Cleiton e Gabrielle Rocha na entrada de um projeto" class="h-[28rem] w-full object-cover transition duration-700 ease-out group-hover:scale-105 sm:h-[34rem] lg:h-[40rem]" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-w-0 flex-col gap-6 lg:col-span-5">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Sobre nós</p>
+                        <h2 class="max-w-full font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Olá, somos EMME Engenharia e Arquitetura.</h2>
+                        <div class="space-y-5 text-base leading-relaxed text-on-surface md:text-lg">
+                            <p>Por trás da EMME, estamos nós: José Cleiton (Engenheiro Civil) e Gabrielle Rocha (Arquiteta). Como casal e sócios, acreditamos que grandes projetos nascem de conexões fortes. É por isso que criamos um modelo focado em parcerias duradouras com arquitetos e construtoras.</p>
+                            <p>Enquanto você foca no comercial e na criação, nós assumimos a produção técnica: detalhamentos executivos rigorosos, engenharia integrada e compatibilização inteligente. Queremos ser os parceiros que dão a segurança técnica que o seu negócio precisa para crescer.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="servicos" class="border-t border-secondary bg-background">
+                <div class="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+                    <div class="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+                        <div class="flex min-w-0 flex-col justify-between gap-6">
+                            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Serviços</p>
+                            <h2 class="max-w-full font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Somos profissionais em Projetos Complementares.</h2>
+                            <p class="text-base leading-relaxed text-on-surface md:text-lg">Desenvolvemos soluções completas em BIM para garantir a máxima eficiência, compatibilização e economia na sua obra.</p>
+                        </div>
+                        <div class="group h-full min-h-[16rem] overflow-hidden border border-secondary bg-surface transition duration-300 hover:border-primary hover:shadow-lg">
+                            <img src="docs/fotos/servicos.png" alt="Planta de cobertura com redes hidrossanitárias, elétricas e equipamentos compatibilizados" class="h-full w-full object-contain transition duration-700 ease-out group-hover:scale-[1.04]" />
+                        </div>
+                    </div>
+
+                    <div class="mt-12 grid gap-6 md:grid-cols-3">
+                        <article class="group border border-secondary bg-surface p-8 transition duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-[0_18px_40px_rgba(189,151,106,0.22)]">
+                            <span class="font-display text-4xl font-semibold text-primary transition duration-300 group-hover:tracking-wide">01</span>
+                            <h3 class="mt-6 font-display text-2xl font-semibold">Projetos Estruturais</h3>
+                            <p class="mt-3 leading-relaxed text-on-surface">Concreto armado e alvenaria estrutural.</p>
+                            <span class="mt-8 block h-0.5 w-10 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </article>
+                        <article class="group border border-secondary bg-surface p-8 transition duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-[0_18px_40px_rgba(189,151,106,0.22)]">
+                            <span class="font-display text-4xl font-semibold text-primary transition duration-300 group-hover:tracking-wide">02</span>
+                            <h3 class="mt-6 font-display text-2xl font-semibold">Projetos Hidrossanitários</h3>
+                            <p class="mt-3 leading-relaxed text-on-surface">Sistemas de água fria, quente, esgoto, drenagem e piscina.</p>
+                            <span class="mt-8 block h-0.5 w-10 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </article>
+                        <article class="group border border-secondary bg-surface p-8 transition duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-[0_18px_40px_rgba(189,151,106,0.22)]">
+                            <span class="font-display text-4xl font-semibold text-primary transition duration-300 group-hover:tracking-wide">03</span>
+                            <h3 class="mt-6 font-display text-2xl font-semibold">Projetos Elétricos de Baixa Tensão</h3>
+                            <p class="mt-3 leading-relaxed text-on-surface">Residencial unifamiliar e multifamiliar.</p>
+                            <span class="mt-8 block h-0.5 w-10 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projetos" class="border-t border-secondary bg-surface">
+                <div class="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+                    <div class="mb-12 flex min-w-0 flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                        <div class="flex flex-col gap-3">
+                            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Portfólio</p>
+                            <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Projetos</h2>
+                        </div>
+                        <div class="flex w-full min-w-0 max-w-full flex-wrap items-center gap-2 md:w-auto">
+                            <button id="project-prev" class="border border-on-surface px-3 py-3 text-xs font-semibold uppercase tracking-[0.14em] transition duration-200 hover:-translate-y-0.5 hover:bg-on-surface hover:text-background" type="button">Anterior</button>
+                            <span id="project-counter" class="min-w-14 text-center text-xs font-semibold uppercase tracking-[0.16em]" aria-live="polite">01 / 03</span>
+                            <button id="project-next" class="border border-on-surface px-3 py-3 text-xs font-semibold uppercase tracking-[0.14em] transition duration-200 hover:-translate-y-0.5 hover:bg-on-surface hover:text-background" type="button">Próximo</button>
+                        </div>
+                    </div>
+
+                    <div class="grid items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
+                        <div class="flex min-w-0 flex-col justify-between gap-8 lg:col-span-5">
+                            <article data-slide data-ifc="docs/ifcs/01113_26_3.IFC">
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Leão Engenharia · 2026</p>
+                                <h3 class="mt-3 font-display text-4xl font-semibold tracking-tight">Casa JL</h3>
+                                <p class="mt-5 text-base leading-relaxed">Este projeto foi desenvolvido para uma residência de alto padrão estruturada em Light Steel Frame (LSF), onde a engenharia de detalhamento foi levada ao limite. Por se tratar de um método construtivo industrializado e modular, cada centímetro importa. O grande diferencial deste trabalho foi a compatibilização minuciosa entre a estrutura de aço e as redes hidráulicas e elétricas, garantindo desperdício zero de material e evitando qualquer interferência na integridade dos perfis estruturais.</p>
+                            </article>
+                            <article class="hidden" data-slide data-ifc="docs/ifcs/01116_26_B.IFC">
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Engenheiro Ivanilton · 2026</p>
+                                <h3 class="mt-3 font-display text-4xl font-semibold tracking-tight">Casa Mauricio</h3>
+                                <p class="mt-5 text-base leading-relaxed">Desenvolvido para uma residência de médio/alto padrão em estrutura de concreto armado, este projeto hidrossanitário teve como premissa máxima a compatibilização prévia. Através de uma análise rigorosa e integrada, todas as interferências entre os sistemas de fluidos e a estrutura foram resolvidas na fase de projeto, mitigando riscos e eliminando completamente qualquer necessidade de quebras ou retrabalho durante a execução da obra.</p>
+                            </article>
+                            <article class="hidden" data-slide data-ifc="docs/ifcs/Vinculo Estrutural.IFC">
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Leão Engenharia · 2026</p>
+                                <h3 class="mt-3 font-display text-4xl font-semibold tracking-tight">Casa Felipe Merlo</h3>
+                                <p class="mt-5 text-base leading-relaxed">Na Casa Felipe Merlo, fomos responsáveis pelo desenvolvimento do projeto elétrico, planejado especificamente para uma residência que mescla estrutura de concreto e Light Steel Frame (LSF). Através da modelagem em ambiente BIM, todas as redes de instalações elétricas e iluminação foram detalhadas previamente para conversar perfeitamente com a modulação dos perfis de aço. Essa precisão técnica elimina improvisos na obra, otimiza o tempo da equipe de eletricistas e entrega um guia executivo de altíssima fidelidade para o construtor.</p>
+                            </article>
+                            <div id="project-dots" class="flex gap-2" role="tablist" aria-label="Projetos do carrossel"></div>
+                        </div>
+                        <div class="min-w-0 border border-secondary bg-background lg:col-span-7">
+                            <div class="flex items-center justify-between gap-3 border-b border-secondary px-4 py-3">
+                                <p id="project-viewer-name" class="font-display text-lg font-semibold">Casa JL</p>
+                                <button id="expand-project" class="border border-on-surface px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition duration-200 hover:-translate-y-0.5 hover:bg-primary hover:border-primary hover:text-on-primary" type="button">Expandir</button>
+                            </div>
+                            <div id="viewer-slot">
+                                <iframe id="project-viewer" class="h-[28rem] w-full md:h-[34rem]" title="Prévia 3D do projeto"></iframe>
+                            </div>
+                            <p class="border-t border-secondary px-4 py-3 text-xs uppercase tracking-[0.12em] text-on-surface">Prévia 3D do modelo IFC. Arraste para orbitar. O carregamento pode levar alguns segundos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="border-t border-secondary bg-background">
+                <div class="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-20 lg:px-12 lg:py-28">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Contato</p>
+                        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Atendimento digital</h2>
+                        <p class="text-lg">Atendimento Digital | Projetos para todo o Brasil</p>
+                    </div>
+                    <div class="grid gap-6 border-t border-secondary pt-8 sm:grid-cols-2">
+                        <a class="group border border-secondary bg-surface p-8 transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg" href="https://wa.me/5584994939243" target="_blank" rel="noopener noreferrer">
+                            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Telefone</span>
+                            <span class="mt-3 block font-display text-3xl font-semibold leading-tight transition-colors group-hover:text-primary">(84) 99493-9243</span>
+                        </a>
+                        <a class="group border border-secondary bg-surface p-8 transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg" href="mailto:emmeengarq@gmail.com">
+                            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-primary">E-mail</span>
+                            <span class="mt-3 block font-display text-2xl font-semibold leading-tight transition-colors group-hover:text-primary sm:text-3xl">emmeengarq@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-secondary bg-surface">
+            <div class="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 lg:px-12">
+                <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+                    <img src="docs/fotos/logo.jpeg" alt="EMME Engenharia e Arquitetura" class="h-12 w-12 object-contain" />
+                    <nav class="flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.14em]" aria-label="Rodapé">
+                        <a class="transition-colors duration-200 hover:text-primary" href="#sobre">Sobre nós</a>
+                        <a class="transition-colors duration-200 hover:text-primary" href="#servicos">Serviços</a>
+                        <a class="transition-colors duration-200 hover:text-primary" href="#projetos">Projetos</a>
+                        <a class="transition-colors duration-200 hover:text-primary" href="#contato">Contato</a>
+                    </nav>
+                </div>
+                <p class="border-t border-secondary pt-6 text-sm">© 2026 EMME Engenharia e Arquitetura. José Cleiton e Gabrielle Rocha.</p>
+            </div>
+        </footer>
+
+        <div id="fundo-switch" class="fixed bottom-4 left-4 z-40 flex max-w-[calc(100%-2rem)] flex-wrap items-center gap-2 border border-secondary bg-background/95 p-2 shadow-lg backdrop-blur-md" role="group" aria-label="Fundo da página">
+            <span class="px-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-on-surface">Fundo</span>
+            <button type="button" data-fundo="degrade" class="border border-secondary px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition hover:border-primary">Degradê</button>
+            <button type="button" data-fundo="linhas" class="border border-secondary px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition hover:border-primary">Linhas</button>
+            <button type="button" data-fundo="confete" class="border border-secondary px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition hover:border-primary">Confete</button>
+            <button type="button" data-fundo="misto" class="border border-secondary px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition hover:border-primary">Misto</button>
+        </div>
+
+        <div id="project-modal" class="fixed inset-0 z-50 hidden bg-on-background/80 p-3 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <div class="flex h-full flex-col bg-background">
+                <div class="flex items-center justify-between gap-4 border-b border-secondary px-4 py-3">
+                    <h2 id="project-modal-title" class="font-display text-xl font-semibold">Prévia 3D</h2>
+                    <button id="close-project" class="border border-on-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition duration-200 hover:bg-on-surface hover:text-background" type="button">Fechar</button>
+                </div>
+                <div id="modal-viewer-host" class="relative min-h-0 flex-1"></div>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                const fundoButtons = Array.from(document.querySelectorAll("#fundo-switch button"));
+                function applyFundo(name) {
+                    document.body.dataset.fundo = name;
+                    fundoButtons.forEach(function (button) {
+                        button.setAttribute("aria-pressed", button.dataset.fundo === name ? "true" : "false");
+                    });
+                    try {
+                        sessionStorage.setItem("emme-fundo", name);
+                    } catch (error) {}
+                }
+                fundoButtons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        applyFundo(button.dataset.fundo);
+                    });
+                });
+                let savedFundo = "misto";
+                try {
+                    savedFundo = sessionStorage.getItem("emme-fundo") || "misto";
+                } catch (error) {}
+                if (!fundoButtons.some(function (button) { return button.dataset.fundo === savedFundo; })) savedFundo = "misto";
+                applyFundo(savedFundo);
+
+                const menuBtn = document.getElementById("menu-btn");
+                const mobileNav = document.getElementById("mobile-nav");
+                menuBtn.addEventListener("click", function () {
+                    const willOpen = mobileNav.classList.contains("hidden");
+                    mobileNav.classList.toggle("hidden");
+                    menuBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+                    menuBtn.textContent = willOpen ? "Fechar" : "Menu";
+                });
+                mobileNav.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        mobileNav.classList.add("hidden");
+                        menuBtn.setAttribute("aria-expanded", "false");
+                        menuBtn.textContent = "Menu";
+                    });
+                });
+
+                const sobreZoom = document.getElementById("sobre-zoom");
+                const sobreFrame = document.getElementById("sobre-frame");
+                const sobreSection = document.getElementById("sobre");
+                let sobreArrived = false;
+
+                function updateSobreZoom() {
+                    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                    const rect = sobreSection.getBoundingClientRect();
+                    const view = window.innerHeight;
+                    const start = view * 0.98;
+                    const end = view * 0.28;
+                    const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+                    const scale = 0.78 + progress * 0.22;
+                    sobreZoom.style.transform = "scale(" + scale.toFixed(4) + ")";
+                    if (progress > 0.92 && !sobreArrived) {
+                        sobreArrived = true;
+                        sobreFrame.classList.add("is-arrived");
+                    } else if (progress < 0.7 && sobreArrived) {
+                        sobreArrived = false;
+                        sobreFrame.classList.remove("is-arrived");
+                    }
+                }
+
+                updateSobreZoom();
+                window.addEventListener("scroll", updateSobreZoom, { passive: true });
+                window.addEventListener("resize", updateSobreZoom);
+
+                const slides = Array.from(document.querySelectorAll("[data-slide]"));
+                const frame = document.getElementById("project-viewer");
+                const counter = document.getElementById("project-counter");
+                const dots = document.getElementById("project-dots");
+                const viewerName = document.getElementById("project-viewer-name");
+                const modal = document.getElementById("project-modal");
+                const modalTitle = document.getElementById("project-modal-title");
+                const modalHost = document.getElementById("modal-viewer-host");
+                const viewerSlot = document.getElementById("viewer-slot");
+                let index = 0;
+                let currentSrc = "";
+
+                slides.forEach(function (slide, i) {
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "h-2.5 w-8 border border-secondary bg-background transition duration-200 hover:border-primary";
+                    button.setAttribute("aria-label", slide.querySelector("h3").textContent);
+                    button.addEventListener("click", function () {
+                        show(i);
+                    });
+                    dots.appendChild(button);
+                });
+
+                function show(next) {
+                    index = (next + slides.length) % slides.length;
+                    slides.forEach(function (slide, i) {
+                        slide.classList.toggle("hidden", i !== index);
+                    });
+                    const slide = slides[index];
+                    const title = slide.querySelector("h3").textContent;
+                    const src = "viewer.html?embed=1&slide=" + index + "&ifc=" + encodeURIComponent(slide.dataset.ifc);
+                    if (currentSrc !== src) {
+                        currentSrc = src;
+                        frame.src = src;
+                    }
+                    viewerName.textContent = title;
+                    modalTitle.textContent = title;
+                    frame.title = "Prévia 3D de " + title;
+                    counter.textContent = String(index + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+                    Array.from(dots.children).forEach(function (button, i) {
+                        if (i === index) button.setAttribute("aria-current", "true");
+                        else button.removeAttribute("aria-current");
+                    });
+                }
+
+                document.getElementById("project-prev").addEventListener("click", function () {
+                    show(index - 1);
+                });
+                document.getElementById("project-next").addEventListener("click", function () {
+                    show(index + 1);
+                });
+
+                function openModal() {
+                    modal.classList.remove("hidden");
+                    frame.classList.remove("h-[28rem]", "md:h-[34rem]");
+                    frame.classList.add("absolute", "inset-0", "h-full");
+                    modalHost.appendChild(frame);
+                    document.body.style.overflow = "hidden";
+                    document.getElementById("close-project").focus();
+                }
+
+                function closeModal() {
+                    frame.classList.remove("absolute", "inset-0", "h-full");
+                    frame.classList.add("h-[28rem]", "md:h-[34rem]");
+                    viewerSlot.appendChild(frame);
+                    modal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }
+
+                document.getElementById("expand-project").addEventListener("click", openModal);
+                document.getElementById("close-project").addEventListener("click", closeModal);
+                modal.addEventListener("click", function (event) {
+                    if (event.target === modal) closeModal();
+                });
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
+                });
+
+                show(0);
+            })();
+        </script>
+    </body>
+</html>
